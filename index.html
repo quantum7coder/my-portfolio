@@ -175,38 +175,38 @@
 
           <div class="guide-pillars">
             <!-- Pillar 1: Consistency -->
-            <div class="guide-pillar max-pillar">
+            <div class="guide-pillar max-pillar" tabindex="0">
               <div class="pillar-header">
                 <span class="pillar-tag max-tag-pill">01</span>
                 <h4 class="pillar-name">CONSISTENCY</h4>
                 <span class="pillar-motto">Every lap. Every day.</span>
               </div>
               <p class="pillar-text">
-                Consistent effort in study, robotics, and every build.
+                Build consistency through daily practice: make progress in study, refine robotics projects, and improve each iteration instead of relying on last-minute effort.
               </p>
             </div>
 
             <!-- Pillar 2: Self-esteem -->
-            <div class="guide-pillar max-pillar">
+            <div class="guide-pillar max-pillar" tabindex="0">
               <div class="pillar-header">
                 <span class="pillar-tag max-tag-pill">02</span>
                 <h4 class="pillar-name">SELF-ESTEEM</h4>
                 <span class="pillar-motto">Trust the preparation.</span>
               </div>
               <p class="pillar-text">
-                Back sound engineering decisions with evidence.
+                Trust preparation and back decisions with evidence. Apply that mindset to engineering choices, project architecture, and learning from every result.
               </p>
             </div>
 
             <!-- Pillar 3: Performance -->
-            <div class="guide-pillar max-pillar">
+            <div class="guide-pillar max-pillar" tabindex="0">
               <div class="pillar-header">
                 <span class="pillar-tag max-tag-pill">03</span>
                 <h4 class="pillar-name">PERFORMANCE</h4>
                 <span class="pillar-motto">Measure what matters.</span>
               </div>
               <p class="pillar-text">
-                Improve control accuracy, inference speed, and reliability.
+                Measure outcomes, not intentions. Tune control accuracy, reduce inference time, and test system reliability so each build performs under real conditions.
               </p>
             </div>
           </div>
@@ -236,38 +236,38 @@
 
           <div class="guide-pillars">
             <!-- Pillar 1: Discipline -->
-            <div class="guide-pillar cr7-pillar">
+            <div class="guide-pillar cr7-pillar" tabindex="0">
               <div class="pillar-header">
                 <span class="pillar-tag cr7-tag-pill">01</span>
                 <h4 class="pillar-name">DISCIPLINE</h4>
                 <span class="pillar-motto">Show up daily.</span>
               </div>
               <p class="pillar-text">
-                Write clearly. Test edge cases. Keep improving.
+                Show up consistently: write clear, maintainable code, review edge cases, and keep learning even when a task becomes repetitive.
               </p>
             </div>
 
             <!-- Pillar 2: Hardwork -->
-            <div class="guide-pillar cr7-pillar">
+            <div class="guide-pillar cr7-pillar" tabindex="0">
               <div class="pillar-header">
                 <span class="pillar-tag cr7-tag-pill">02</span>
                 <h4 class="pillar-name">HARDWORK</h4>
                 <span class="pillar-motto">Build. Debug. Repeat.</span>
               </div>
               <p class="pillar-text">
-                Keep iterating until hardware and software work together.
+                Build from the fundamentals, debug carefully, and repeat the tests until hardware and software work together reliably.
               </p>
             </div>
 
             <!-- Pillar 3: WillPower -->
-            <div class="guide-pillar cr7-pillar">
+            <div class="guide-pillar cr7-pillar" tabindex="0">
               <div class="pillar-header">
                 <span class="pillar-tag cr7-tag-pill">03</span>
                 <h4 class="pillar-name">WILLPOWER</h4>
                 <span class="pillar-motto">Stay in the fight.</span>
               </div>
               <p class="pillar-text">
-                Turn pressure and setbacks into the next iteration.
+                Stay composed when a system fails or a demo gets difficult. Treat setbacks as feedback and turn them into the next iteration.
               </p>
             </div>
           </div>
@@ -1451,6 +1451,7 @@ html, body {
   display: flex;
   flex-direction: column;
   flex: 1;
+  min-height: 0;
 }
 .idol-lead-text {
   font-size: 11px;
@@ -1464,13 +1465,21 @@ html, body {
 .guide-pillars {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
   gap: 10px;
+  flex: 1;
+  min-height: 0;
+  align-content: stretch;
 }
 .guide-pillar {
   --pillar-accent: #ffd100;
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
   background: linear-gradient(135deg, rgba(16, 20, 30, 0.7) 0%, rgba(22, 14, 20, 0.6) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 9px;
@@ -1515,6 +1524,10 @@ html, body {
   border-color: var(--pillar-accent);
   box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.75), 0 0 18px rgba(255, 209, 0, 0.15);
 }
+.guide-pillar:focus-visible {
+  outline: 2px solid var(--pillar-accent);
+  outline-offset: 3px;
+}
 .cr7-pillar:hover {
   box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.75), 0 0 18px rgba(255, 77, 77, 0.18);
 }
@@ -1524,7 +1537,7 @@ html, body {
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 .pillar-tag {
   font-size: 10px;
@@ -1560,9 +1573,9 @@ html, body {
   letter-spacing: 0.04em;
 }
 .pillar-text {
-  font-size: 12.5px;
-  line-height: 1.45;
-  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #e2e8f0;
   margin: 0;
 }
 
@@ -1985,16 +1998,22 @@ html, body {
               margin 0.3s ease !important;
   margin-top: 0 !important;
 }
-.guide-pillar .pillar-text {
-  max-height: none !important;
-  opacity: 1 !important;
-  overflow: visible !important;
-  transform: none !important;
-  margin-top: 0 !important;
-}
 .f1-aligned-tile:hover .tile-desc {
   max-height: 120px !important;
   opacity: 1 !important;
+  transform: translateY(0) !important;
+  margin-top: 8px !important;
+}
+
+.guide-pillar:hover .pillar-header,
+.guide-pillar:focus .pillar-header {
+  margin-bottom: 8px;
+}
+.guide-pillar:hover .pillar-text,
+.guide-pillar:focus .pillar-text {
+  max-height: 180px !important;
+  opacity: 1 !important;
+  overflow: hidden !important;
   transform: translateY(0) !important;
   margin-top: 8px !important;
 }
